@@ -87,12 +87,10 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Source: https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+		<!-- Spring Boot Starter Data JPA provides the necessary autoconfiguration and pulls in spring-data-jpa, hibernate, etc. -->
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>4.1.0-M2</version>
-			<scope>compile</scope>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
 		<!-- Source: https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -114,11 +112,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
-			<version>3.1.0</version> <!-- Use appropriate version -->
-		</dependency>
+
 
 	</dependencies>
 
