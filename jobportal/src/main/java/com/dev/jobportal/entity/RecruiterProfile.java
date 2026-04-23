@@ -3,7 +3,7 @@ package com.dev.jobportal.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "recruiter-profile")
+@Table(name = "recruiter_profile")
 public class RecruiterProfile {
 
     @Id
@@ -36,6 +36,10 @@ public class RecruiterProfile {
         this.country = country;
         this.company = company;
         this.profilePhoto = profilePhoto;
+    }
+
+    public RecruiterProfile(Users users) {
+        this.userId = users;
     }
 
     public int getUserAccountId() {

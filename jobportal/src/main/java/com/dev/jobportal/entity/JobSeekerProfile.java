@@ -49,6 +49,10 @@ public class JobSeekerProfile {
         this.skills = skills;
     }
 
+    public JobSeekerProfile(Users users) {
+        this.userId = users;
+    }
+
     public int getUserAccountId() {
         return userAccountId;
     }
