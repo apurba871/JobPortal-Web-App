@@ -18,7 +18,7 @@ public class JobPostActivity {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "jobLocationId", referencedColumnName = "Id")
-    private JobLocation jobLocation;
+    private JobLocation jobLocationId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "jobCompanyId", referencedColumnName = "Id")
@@ -44,10 +44,10 @@ public class JobPostActivity {
     public JobPostActivity() {
     }
 
-    public JobPostActivity(Integer jobPostId, Users postedById, JobLocation jobLocation, JobCompany jobCompanyId, Boolean isActive, Boolean isSaved, String descriptionOfJob, String jobType, String salary, String remote, Date postedDate, String jobTitle) {
+    public JobPostActivity(Integer jobPostId, Users postedById, JobLocation jobLocationId, JobCompany jobCompanyId, Boolean isActive, Boolean isSaved, String descriptionOfJob, String jobType, String salary, String remote, Date postedDate, String jobTitle) {
         this.jobPostId = jobPostId;
         this.postedById = postedById;
-        this.jobLocation = jobLocation;
+        this.jobLocationId = jobLocationId;
         this.jobCompanyId = jobCompanyId;
         this.isActive = isActive;
         this.isSaved = isSaved;
@@ -75,12 +75,12 @@ public class JobPostActivity {
         this.postedById = postedById;
     }
 
-    public JobLocation getJobLocation() {
-        return jobLocation;
+    public JobLocation getJobLocationId() {
+        return jobLocationId;
     }
 
-    public void setJobLocation(JobLocation jobLocation) {
-        this.jobLocation = jobLocation;
+    public void setJobLocationId(JobLocation jobLocationId) {
+        this.jobLocationId = jobLocationId;
     }
 
     public JobCompany getJobCompanyId() {
@@ -160,7 +160,7 @@ public class JobPostActivity {
         return "JobPostActivity{" +
                 "jobPostId=" + jobPostId +
                 ", postedById=" + postedById +
-                ", jobLocation=" + jobLocation +
+                ", jobLocation=" + jobLocationId +
                 ", jobCompanyId=" + jobCompanyId +
                 ", isActive=" + isActive +
                 ", isSaved=" + isSaved +
