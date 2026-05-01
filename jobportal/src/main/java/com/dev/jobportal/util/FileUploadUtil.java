@@ -23,7 +23,7 @@ public class FileUploadUtil {
             System.out.println("FileName: " + filename);
             Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
         }catch(IOException ioe) {
-            throw new IOException("Could not save image file: " + filename, ioe);
+            throw new IOException("Could not save image file: " + filename + " | Exception: " + ioe.getClass().getName() + " | Message: " + ioe.getMessage(), ioe);
         }
     }
 }
