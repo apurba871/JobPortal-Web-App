@@ -146,8 +146,8 @@ public class JobPostActivityController {
                     if (!saved) {
                         jobActivity.setIsSaved(false);
                     }
-                    model.addAttribute("jobPost", jobPost);
                 }
+                model.addAttribute("jobPost", jobPost);
             }
         }
         model.addAttribute("user", currentUserProfile);
