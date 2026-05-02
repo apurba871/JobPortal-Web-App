@@ -48,5 +48,9 @@ public class JobPostActivityService {
                 jobPostActivityRepository.searchWithoutDate(job, location, remote, type) :
                 jobPostActivityRepository.search(job, location, remote, type, searchDate);
     }
+
+    public void deleteById(int id) {
+        jobPostActivityRepository.deleteById(id);
+    }
 }
 

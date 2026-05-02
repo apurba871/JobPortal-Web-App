@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import jakarta.transaction.Transactional;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -179,6 +181,18 @@ public class JobPostActivityController {
         model.addAttribute("jobPostActivity", jobPostActivity);
         model.addAttribute("user", usersService.getCurrentUserProfile());
         return "add-jobs";
+    }
+
+    @Transactional
+    @PostMapping("/dashboard/deleteJob/{id}")
+    public String deleteJob(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
+        JobPostActivity jobPostActivity = jobPostActivityService.getOne(id);
+        // Delete related applications and saves first (FK constraint)
+        jobSeekerApplyService.deleteAllByJob(jobPostActivity);
+        jobSeekerSaveService.deleteAllByJob(jobPostActivity);
+        jobPostActivityService.deleteById(id);
+        redirectAttributes.addFlashAttribute("msg", "Job deleted successfully!");
+        return "redirect:/dashboard/";
     }
 
     @GetMapping("/global-search/")
