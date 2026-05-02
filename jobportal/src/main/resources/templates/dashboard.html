@@ -18,6 +18,12 @@
 </head>
 
 <body>
+<div th:if="${msg}" class="alert alert-success alert-dismissible fade show toast-msg" role="alert" style="position: fixed; top: 20px; right: 20px; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <strong th:text="${msg}"></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="background: none; border: none; font-size: 1.5rem; line-height: 1; padding: 0; margin-left: 15px;">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 <header class="navbar navbar-expand-lg navbar-dark">
     <label class="mt-2 ms-5 font-weight-bold h5"
     ><a th:href="@{/dashboard/}">hotdevjobs</a
@@ -314,6 +320,14 @@
     });
     $('#loc').change(function() {
       $('#hidLoc').val($(this).val());
+    });
+
+    $(document).ready(function() {
+        if ($('.toast-msg').length) {
+            setTimeout(function() {
+                $('.toast-msg').fadeOut('slow');
+            }, 3000);
+        }
     });
 </script>
 </body>

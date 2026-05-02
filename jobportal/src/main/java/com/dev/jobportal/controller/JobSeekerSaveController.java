@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class JobSeekerSaveController {
     }
 
     @PostMapping("job-details/save/{id}")
-    public String save(@PathVariable("id") int id, JobSeekerSave jobSeekerSave) {
+    public String save(@PathVariable("id") int id, JobSeekerSave jobSeekerSave, RedirectAttributes redirectAttributes) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             String currentUsername = authentication.getName();
@@ -50,6 +51,7 @@ public class JobSeekerSaveController {
                 throw new RuntimeException("User not found");
             }
             jobSeekerSaveService.addNew(jobSeekerSave);
+            redirectAttributes.addFlashAttribute("msg", "Saved!");
         }
         return "redirect:/dashboard/";
     }
