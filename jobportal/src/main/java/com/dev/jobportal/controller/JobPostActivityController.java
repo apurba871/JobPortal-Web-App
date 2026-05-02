@@ -181,7 +181,7 @@ public class JobPostActivityController {
         return "add-jobs";
     }
 
-    @GetMapping("global-search/")
+    @GetMapping("/global-search/")
     public String globalSearch(Model model, @RequestParam(value = "job", required = false) String job,
                                @RequestParam(value = "location", required = false) String location,
                                @RequestParam(value = "partTime", required = false) String partTime,
