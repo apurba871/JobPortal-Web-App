@@ -364,9 +364,9 @@ label.large-label {
   background-image: linear-gradient(to right,
       rgba(0, 34, 68, 0.5),
       rgba(0, 34, 68, 0.5)),
-    url('../assets/coffee-mug.jpg');
+    url('../assets/img2.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 50% 100%;
   background-attachment: fixed;
 }
 
@@ -429,11 +429,12 @@ label.large-label {
   border: none;
   border-radius: 5px;
   color: white;
-  width: 100%;
+  width: 50%;
   padding: 2%;
   font-weight: bolder;
   font-size: large;
   height: 100%;
+  margin-left: 25%;
 }
 
 .myBtn-light {

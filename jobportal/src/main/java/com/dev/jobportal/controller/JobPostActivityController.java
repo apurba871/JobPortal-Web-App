@@ -88,17 +88,17 @@ public class JobPostActivityController {
             partTime = "Part-Time";
             fullTime = "Full-Time";
             freelance = "Freelance";
-            remote = false;
+            type = false;
         }
 
         if (officeOnly == null && remoteOnly == null && partialRemote == null) {
             officeOnly = "Office-Only";
             remoteOnly = "Remote-Only";
             partialRemote = "Partial-Remote";
-            type = false;
+            remote = false;
         }
 
-        if (!dateSearchFlag && !remote && !StringUtils.hasText(job) && !StringUtils.hasText(location)) {
+        if (!dateSearchFlag && !remote && !type && !StringUtils.hasText(job) && !StringUtils.hasText(location)) {
             jobPost = jobPostActivityService.getAll();
         } else {
             jobPost = jobPostActivityService.search(job, location,
@@ -146,8 +146,8 @@ public class JobPostActivityController {
                     if (!saved) {
                         jobActivity.setIsSaved(false);
                     }
-                    model.addAttribute("jobPost", jobPost);
                 }
+                model.addAttribute("jobPost", jobPost);
             }
         }
         model.addAttribute("user", currentUserProfile);
@@ -229,17 +229,17 @@ public class JobPostActivityController {
             partTime = "Part-Time";
             fullTime = "Full-Time";
             freelance = "Freelance";
-            remote = false;
+            type = false;
         }
 
         if (officeOnly == null && remoteOnly == null && partialRemote == null) {
             officeOnly = "Office-Only";
             remoteOnly = "Remote-Only";
             partialRemote = "Partial-Remote";
-            type = false;
+            remote = false;
         }
 
-        if (!dateSearchFlag && !remote && !StringUtils.hasText(job) && !StringUtils.hasText(location)) {
+        if (!dateSearchFlag && !remote && !type && !StringUtils.hasText(job) && !StringUtils.hasText(location)) {
             jobPost = jobPostActivityService.getAll();
         } else {
             jobPost = jobPostActivityService.search(job, location,
