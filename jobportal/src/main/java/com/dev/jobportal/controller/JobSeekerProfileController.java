@@ -121,7 +121,7 @@ public class JobSeekerProfileController {
         FileDownloadUtil fileDownloadUtil = new FileDownloadUtil();
         Resource resource = null;
         try {
-            resource = fileDownloadUtil.getFileAsResource("photos/candidate" + userID, fileName);
+            resource = fileDownloadUtil.getFileAsResource("photos/candidate/" + userID, fileName);
         } catch(IOException e) {
             return ResponseEntity.badRequest().build();
         }
