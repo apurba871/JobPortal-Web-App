@@ -51,8 +51,12 @@ public class JobSeekerSaveController {
             } else {
                 throw new RuntimeException("User not found");
             }
-            jobSeekerSaveService.addNew(jobSeekerSave);
-            redirectAttributes.addFlashAttribute("msg", "Saved!");
+            try {
+                jobSeekerSaveService.addNew(jobSeekerSave);
+                redirectAttributes.addFlashAttribute("msg", "Saved!");
+            } catch (Exception e) {
+                // Job may already be saved — silently redirect without message
+            }
         }
         return "redirect:/dashboard/";
     }
